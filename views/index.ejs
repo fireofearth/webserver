@@ -1,0 +1,90 @@
+<%- include('__top', {title: "the index"}) %>
+
+<script>
+    function setJobs() {
+        addFields();
+    }
+
+    function addFields() {
+        var jobNumber = document.getElementById("number_jobs").value;
+        var clientJobsContainer = document.getElementById("client_jobs");
+        while (clientJobsContainer.hasChildNodes()) {
+            clientJobsContainer.removeChild(clientJobsContainer.lastChild);
+        }
+        jobNumber = jobNumber > 10 ? 10 : jobNumber;
+        for (i=0; i<jobNumber ;i++) {
+            var inputGroup = document.createElement("div");
+            inputGroup.className = "input-group mb-3";
+
+            var inputGroupPrepend = document.createElement("div");
+            inputGroupPrepend.className = "input-group-prepend";
+
+            var inputGroupText = document.createElement("div");
+            inputGroupText.className = "input-group-text";
+            inputGroupText.appendChild(document.createTextNode(`Job ${i+1}`));
+            inputGroupPrepend.appendChild(inputGroupText);
+
+            var nameInput = document.createElement("input");
+            nameInput.className = "form-control";
+            nameInput.type = "text";
+            nameInput.id = `job_${i+1}_name`;
+            nameInput.name = `job_${i+1}_name`;
+            nameInput.placeholder = "job name";
+            nameInput.required = true;
+
+            var weightInput = document.createElement("input");
+            weightInput.className = "form-control";
+            weightInput.type = "number";
+            weightInput.id = `job_${i+1}_weight`;
+            weightInput.name = `job_${i+1}_weight`;
+            weightInput.placeholder = "job length (s)";
+            weightInput.required = true;
+
+            inputGroup.appendChild(inputGroupPrepend);
+            inputGroup.appendChild(nameInput);
+            inputGroup.appendChild(weightInput);
+            clientJobsContainer.appendChild(inputGroup);
+        }
+    }
+</script>
+
+<!-- Title -->
+<h1 class="mt-4">Add Jobs</h1>
+
+<form id="myform" action="/add/" method="post" enctype="application/x-www-form-urlencoded">
+
+    <label for="client_email">Email address</label>
+    <div class="input-group mb-3">
+        <input type="email" class="form-control" id="client_email" name="client_email" placeholder="colinc@protonmail.com" required>
+    </div>
+
+    <label for="client_username">User name</label>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" id="client_username" name="client_username" placeholder="colinc" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">details</span>
+        </div>
+        <textarea class="form-control" id="client_detail" name="client_detail" aria-label="details"></textarea required>
+    </div>
+
+    <div class="input" id="client_jobs"></div>
+
+    <label for="number_jobs">Number of jobs</label>
+    <div class="input-group mb-3">
+        <input type="number" class="form-control" id="number_jobs" name="number_jobs" min="1" step="1" required>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="set_my_jobs" onclick="setJobs();">Set jobs</button>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="client_submit">Submit</button>
+
+</form>
+
+<%- include('__bottom') %>

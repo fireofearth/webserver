@@ -1,0 +1,20 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "description": "my homepage for blogs and stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "moment": "^2.23.0",
+    "nodemailer": "^5.1.1",
+    "pug": "^2.0.3",
+    "uuid": "^3.3.2"
+  }
+}
