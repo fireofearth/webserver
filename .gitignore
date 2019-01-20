@@ -1,3 +1,5 @@
 node_modules
 env.js
 package-lock.json
+.idea
+job.out
