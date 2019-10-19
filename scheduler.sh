@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR="$HOME/Machines/web/webserver"
+DIR="$HOME/code/web/webserver"
 PID_FILE="$DIR/pidfile"
 LOCK_FILE="$DIR/lock"
 JSON_FILE="$DIR/job_list.json"

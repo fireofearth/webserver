@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="$HOME/Machines/web/webserver"
+DIR="$HOME/code/web/webserver"
 JOB="$DIR/job"
 
 if [ $# -eq 4 ]; then

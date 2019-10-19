@@ -1,1 +1,1 @@
-10 * * * * ~/Machines/web/webserver/scheduler.sh
+10 * * * * ~/code/web/webserver/scheduler.sh
